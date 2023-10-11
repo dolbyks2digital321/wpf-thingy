@@ -7,6 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="361*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Fill="#FFFFB9DE" Grid.ColumnSpan="2"></Rectangle>
+        <Rectangle Fill="#FFFFB9DE" Grid.RowSpan="2"></Rectangle>
+
+        <Frame x:Name="MainFrame" Grid.Column="1" Grid.Row="1"></Frame>
     </Grid>
 </Window>

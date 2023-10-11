@@ -12,19 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using wpf_thingy.Pages;
 
-namespace wpf_thingy
+namespace wpf_thingy.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для ProductionList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ProductionList : Page
     {
-        public MainWindow()
+        public ProductionList()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductionList());
         }
     }
 }
