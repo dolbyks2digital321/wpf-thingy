@@ -23,6 +23,12 @@ namespace wpf_thingy.Pages
         public ProductionList()
         {
             InitializeComponent();
+            var ProductionList = App.db.Product.ToList();
+            ProductionWP.Children.Clear();
+            foreach (var product in ProductionList)
+            {
+                ProductionWP.Children.Add(new ProductionUC(product));
+            }
         }
     }
 }

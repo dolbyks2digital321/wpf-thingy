@@ -8,7 +8,9 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ProductionList">
 
-    <Grid>
-        
+    <Grid Background="AntiqueWhite">
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+            <WrapPanel x:Name="ProductionWP"></WrapPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

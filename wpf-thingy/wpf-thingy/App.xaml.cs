@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using wpf_thingy.Cumponents;
 
 namespace wpf_thingy
 {
@@ -13,5 +14,6 @@ namespace wpf_thingy
     /// </summary>
     public partial class App : Application
     {
+        public static HardwareShop312Entities2 db = new HardwareShop312Entities2();
     }
 }

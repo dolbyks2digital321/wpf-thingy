@@ -5,24 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:wpf_thingy.Pages"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="67*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="17*"/>
-            <RowDefinition Height="33*"/>
-        </Grid.RowDefinitions>
+             d:DesignHeight="600" d:DesignWidth="800">
+    <Border x:Name="MainBorder" Height="600" Width="390" BorderBrush="#FFE7FABF" BorderThickness="2" Margin="2">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="67*"/>
+                <RowDefinition Height="18*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="33*"/>
+            </Grid.RowDefinitions>
 
-        <Image Source="/Resources/fridge.jpg" >
-        </Image>
+            <Image Source="/Resources/image2.jpg" />
+            <TextBlock x:Name="TitleTb" Grid.Row="1"></TextBlock>
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <TextBlock x:Name="StarAmount"></TextBlock>
+                <TextBlock x:Name="Comments"></TextBlock>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
+                <TextBlock x:Name="CostNewTb" Margin="5 0" TextDecorations="Strikethrough"></TextBlock>
+                <TextBlock x:Name="CostOldTb" ></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center"  Grid.Row="4" Orientation="Horizontal">
+                <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White">Купить</Button>
+                <Button Background="White" x:Name="LikeButt" BorderBrush="White">❤</Button>
+                <Button Background="White" x:Name="StatisticButt" BorderBrush="White">.|||.</Button>
+            </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center"  Grid.Row="4" Orientation="Horizontal" Width="480">
-            <Button  Margin="0 0 180 0" Background="#FFFF4747" Foreground="White">Купить</Button>
-            <Button Background="White" BorderBrush="White">❤</Button>
-            <Button Background="White" BorderBrush="White">.|||.</Button>
-        </StackPanel>
-
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

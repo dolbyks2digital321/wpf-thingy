@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_thingy.Cumponents;
 
 namespace wpf_thingy.Pages
 {
@@ -20,9 +21,12 @@ namespace wpf_thingy.Pages
     /// </summary>
     public partial class ProductionUC : UserControl
     {
-        public ProductionUC()
+        public ProductionUC(Product product)
         {
             InitializeComponent();
+            TitleTb.Text = product.Title;
+            CostNewTb.Text = product.NewCost;
+            CostOldTb.Text = product.Cost.ToString();
         }
     }
 }

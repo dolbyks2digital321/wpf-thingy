@@ -63,9 +63,39 @@ namespace wpf_thingy.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fridge {
+        internal static System.Drawing.Bitmap image2 {
             get {
-                object obj = ResourceManager.GetObject("fridge", resourceCulture);
+                object obj = ResourceManager.GetObject("image2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imagef {
+            get {
+                object obj = ResourceManager.GetObject("imagef", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageone {
+            get {
+                object obj = ResourceManager.GetObject("imageone", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap imagethree {
+            get {
+                object obj = ResourceManager.GetObject("imagethree", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
