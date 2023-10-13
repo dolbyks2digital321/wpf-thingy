@@ -28,7 +28,7 @@ namespace wpf_thingy.Pages
             CostNewTb.Text = product.NewCost.ToString();
             CostOldTb.Text = product.Cost.ToString();
             CostOldTb.Visibility = product.CostVisibility;
-            CommentsTb.Text = product.Comments_Amount.ToString();
+            //CommentsTb.Text = product.Comments_Amount
         }
     }
 }
