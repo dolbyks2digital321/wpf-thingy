@@ -25,8 +25,10 @@ namespace wpf_thingy.Pages
         {
             InitializeComponent();
             TitleTb.Text = product.Title;
-            CostNewTb.Text = product.NewCost;
+            CostNewTb.Text = product.NewCost.ToString();
             CostOldTb.Text = product.Cost.ToString();
+            CostOldTb.Visibility = product.CostVisibility;
+            CommentsTb.Text = product.Comments_Amount.ToString();
         }
     }
 }

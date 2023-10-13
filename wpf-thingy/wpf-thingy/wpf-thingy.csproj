@@ -158,10 +158,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imagethree.jpg" />
-    <None Include="Resources\imageone.jpg" />
-    <None Include="Resources\imagef.jpg" />
-    <None Include="Resources\image2.jpg" />
+    <Resource Include="Resources\imagethree.jpg" />
+    <Resource Include="Resources\imageone.jpg" />
+    <Resource Include="Resources\imagef.jpg" />
+    <Resource Include="Resources\image2.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

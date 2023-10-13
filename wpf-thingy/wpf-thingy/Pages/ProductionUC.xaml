@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:wpf_thingy.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
-    <Border x:Name="MainBorder" Height="600" Width="390" BorderBrush="#FFE7FABF" BorderThickness="2" Margin="2">
+    <Border x:Name="MainBorder" Height="400" Width="290" BorderBrush="#FFFFB4E6" BorderThickness="2" Margin="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="67*"/>
@@ -19,15 +19,15 @@
             <Image Source="/Resources/image2.jpg" />
             <TextBlock x:Name="TitleTb" Grid.Row="1"></TextBlock>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBlock x:Name="StarAmount"></TextBlock>
-                <TextBlock x:Name="Comments"></TextBlock>
+                <TextBlock x:Name="StarAmountTb"></TextBlock>
+                <TextBlock x:Name="CommentsTb"></TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <TextBlock x:Name="CostNewTb" Margin="5 0" TextDecorations="Strikethrough"></TextBlock>
-                <TextBlock x:Name="CostOldTb" ></TextBlock>
+                <TextBlock FontSize="20" x:Name="CostNewTb" Margin="5 0"></TextBlock>
+                <TextBlock x:Name="CostOldTb" TextDecorations="Strikethrough"></TextBlock>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center"  Grid.Row="4" Orientation="Horizontal">
-                <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White">Купить</Button>
+                <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White" BorderBrush="#FFFF4747">Купить</Button>
                 <Button Background="White" x:Name="LikeButt" BorderBrush="White">❤</Button>
                 <Button Background="White" x:Name="StatisticButt" BorderBrush="White">.|||.</Button>
             </StackPanel>
