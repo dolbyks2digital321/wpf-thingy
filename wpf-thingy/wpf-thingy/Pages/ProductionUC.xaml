@@ -16,11 +16,11 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="/Resources/image2.jpg" />
+            <Image x:Name="Img"/>
             <TextBlock x:Name="TitleTb" Grid.Row="1"></TextBlock>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <TextBlock x:Name="StarAmountTb"></TextBlock>
-                <TextBlock x:Name="CommentsTb"></TextBlock>
+                <TextBlock Margin="100 0" x:Name="CommentsTb"></TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
                 <TextBlock FontSize="20" x:Name="CostNewTb" Margin="5 0"></TextBlock>

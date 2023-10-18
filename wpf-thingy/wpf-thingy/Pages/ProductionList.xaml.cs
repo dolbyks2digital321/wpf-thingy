@@ -24,9 +24,11 @@ namespace wpf_thingy.Pages
         {
             InitializeComponent();
             var ProductionList = App.db.Product.ToList();
+            var FeedList = App.db.Feedback.ToList();
             ProductionWP.Children.Clear();
             foreach (var product in ProductionList)
             {
+                //var feed = FeedList.Where(x => x.ProductId == product.Id).ToList();
                 ProductionWP.Children.Add(new ProductionUC(product));
             }
         }
