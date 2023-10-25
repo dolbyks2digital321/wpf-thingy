@@ -15,5 +15,6 @@ namespace wpf_thingy
     public partial class App : Application
     {
         public static HardwareShop312Entities2 db = new HardwareShop312Entities2();
+        public static bool isAdmin = false;
     }
 }

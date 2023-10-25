@@ -27,7 +27,7 @@ namespace wpf_thingy.Pages
         {
             InitializeComponent();
             TitleTb.Text = product.Title;
-            CostNewTb.Text = product.NewCost.ToString();
+            CostNewTb.Text = $"{product.NewCost} ₽";
             CostOldTb.Text = product.Cost.ToString();
             CostOldTb.Visibility = product.CostVisibility;
 
@@ -36,26 +36,27 @@ namespace wpf_thingy.Pages
 
             double cunt = 0;
             double sum = 0;
-            //Img.Source = GetImageSources(product.MainImage);
+            Img.Source = GetImageSources(product.MainImage);
             foreach (var feeds in feed)
             {
                 cunt++;
                 sum += feeds.Evaluation;
             }
             double rating = sum / cunt;
-            //MessageBox.Show($"{sum} / {cunt} = {rating}");
             StarAmountTb.Text = $"★{rating.ToString("0.00")}";
-
+            CommentsTb.Text = $"{cunt} отзывов";
+            DiscoTB.Visibility = product.CostVisibility;
+            DiscoTB.Text = $"{product.Discount}% !!!";
         }
 
-        //public BitmapImage GetImageSources(byte[] byteImage)
-        //{
-        //    MemoryStream byteStream = new MemoryStream(byteImage);
-        //    BitmapImage image = new BitmapImage();
-        //    image.BeginInit();
-        //    image.StreamSource = byteStream;
-        //    image.EndInit();
-        //    return image;
-        //}
+        public BitmapImage GetImageSources(byte[] byteImage)
+        {
+            MemoryStream byteStream = new MemoryStream(byteImage);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            image.StreamSource = byteStream;
+            image.EndInit();
+            return image;
+        }
     }
 }

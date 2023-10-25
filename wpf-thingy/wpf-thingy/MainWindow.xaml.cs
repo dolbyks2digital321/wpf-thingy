@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,32 @@ namespace wpf_thingy
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new ProductionList());
+            //var path = @"\\NAS36D451\user-domain$\stud\212102\Desktop\";
+            //foreach (var item in App.db.Product.ToArray())
+            //{
+            //    var fullPath = path + item.MainImage_Path.Trim();
+            //    item.MainImage = File.ReadAllBytes(fullPath);
+            //}
+            //App.db.SaveChanges();
+            MainFrame.Navigate(new AuthorizationPage());
+            
+        }
+
+        private void BackButt_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.CanGoBack && App.isAdmin == false)
+            {
+                MainFrame.GoBack();
+                MainFrame.RemoveBackEntry();
+            }
+            else if (MainFrame.CanGoBack) MainFrame.GoBack();
+        }
+
+        private void ExitButt_Click(object sender, RoutedEventArgs e)
+        {
+            App.isAdmin = false;
+            MainFrame.Navigate(new AuthorizationPage());
+            if (MainFrame.CanGoBack) MainFrame.RemoveBackEntry();
         }
     }
 }

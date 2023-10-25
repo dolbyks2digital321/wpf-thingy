@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_thingy.Cumponents;
 
 namespace wpf_thingy.Pages
 {
@@ -23,14 +24,39 @@ namespace wpf_thingy.Pages
         public ProductionList()
         {
             InitializeComponent();
-            var ProductionList = App.db.Product.ToList();
-            var FeedList = App.db.Feedback.ToList();
-            ProductionWP.Children.Clear();
-            foreach (var product in ProductionList)
+            if (App.isAdmin == false) AddBtn.Visibility = Visibility.Hidden;
+            else AddBtn.Visibility = Visibility.Visible;
+
+            var productList = App.db.Product.ToList();
+            Refresh();
+        }
+
+        private void Refresh()
+        {
+            IEnumerable<Product> productSortList = App.db.Product;
+            if (SortCB.SelectedIndex == 1)
             {
-                //var feed = FeedList.Where(x => x.ProductId == product.Id).ToList();
-                ProductionWP.Children.Add(new ProductionUC(product));
+                productSortList = productSortList.OrderBy(x => x.Cost);
             }
+            else if (SortCB.SelectedIndex == 2)
+            {
+                productSortList = productSortList.OrderByDescending(x => x.NewCost);
+            }
+            ProductionWP.Children.Clear();
+            foreach (var service in productSortList)
+            {
+                ProductionWP.Children.Add(new ProductionUC(service));
+            }
+        }
+
+        private void SortCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

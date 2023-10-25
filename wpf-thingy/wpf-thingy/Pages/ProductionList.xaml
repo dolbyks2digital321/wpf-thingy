@@ -9,8 +9,24 @@
       Title="ProductionList">
 
     <Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="349*"/>
+            <RowDefinition Height="58*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <ComboBox x:Name="SortCB" SelectionChanged="SortCB_SelectionChanged">
+                <ComboBoxItem>По умолчанию</ComboBoxItem>
+                <ComboBoxItem>По возрастанию</ComboBoxItem>
+                <ComboBoxItem>По убыванию</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
             <WrapPanel x:Name="ProductionWP"></WrapPanel>
         </ScrollViewer>
+
+        <Button Grid.Row="2" Height="50" x:Name="AddBtn" Click="AddBtn_Click">Добавить</Button>
     </Grid>
 </Page>

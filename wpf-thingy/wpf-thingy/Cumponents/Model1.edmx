@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище HardwareShop312Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище HardwareShop312Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Feedback">
           <Key>
             <PropertyRef Name="Id" />
@@ -25,6 +25,7 @@
           <Property Name="Cost" Type="money" Nullable="false" />
           <Property Name="Discount" Type="float" />
           <Property Name="MainImage" Type="varbinary(max)" />
+          <Property Name="MainImage_Path" Type="nvarchar" MaxLength="1000" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -88,8 +89,7 @@
             <End Role="Feedback" EntitySet="Feedback" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HardwareShop312Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -115,6 +115,7 @@
           <Property Name="Discount" Type="Double" />
           <Property Name="MainImage" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Feedback" Relationship="Self.FK_Feedback_Product" FromRole="Product" ToRole="Feedback" />
+          <Property Name="MainImage_Path" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -208,6 +209,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="HardwareShop312Model.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="MainImage_Path" ColumnName="MainImage_Path" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

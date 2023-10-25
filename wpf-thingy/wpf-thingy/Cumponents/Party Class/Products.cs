@@ -11,12 +11,12 @@ namespace wpf_thingy.Cumponents
 {
     public partial class Product
     {
-        public string NewCost
+        public decimal NewCost
         {
             get
             {
-                if (Discount == 0) return $"{Cost} ₽";
-                else return $"{Cost - Cost * (decimal)Discount / 100} ₽";
+                if (Discount == 0) return Cost;
+                else return Cost - Cost * (decimal)Discount / 100;
             }
         }
 

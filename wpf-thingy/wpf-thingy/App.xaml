@@ -15,6 +15,12 @@
             <Setter Property="Background" Value="White"></Setter>
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="100"></Setter>
+            <Setter Property="Cursor" Value="Hand"></Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Width" Value="400"></Setter>
+            <Setter Property="Height" Value="35"></Setter>
         </Style>
     </Application.Resources>
 </Application>

@@ -16,7 +16,9 @@
                 <RowDefinition Height="33*"/>
             </Grid.RowDefinitions>
 
-            <Image x:Name="Img"/>
+            
+            <Image x:Name="Img" Source="/Resources/image2.jpg" />
+            <TextBlock Margin="0 75 5 0" FontSize="18" HorizontalAlignment="Right" x:Name="DiscoTB" Height="35" Width="65" Background="#FFFF4747" Foreground="White"></TextBlock>
             <TextBlock x:Name="TitleTb" Grid.Row="1"></TextBlock>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <TextBlock x:Name="StarAmountTb"></TextBlock>
