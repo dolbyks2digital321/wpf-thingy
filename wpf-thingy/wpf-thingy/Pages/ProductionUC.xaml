@@ -30,7 +30,9 @@
             </StackPanel>
             <StackPanel HorizontalAlignment="Center"  Grid.Row="4" Orientation="Horizontal">
                 <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White" BorderBrush="#FFFF4747">Купить</Button>
+                <Button x:Name="RedactButt" Background="#FFFF4747" Foreground="White" BorderBrush="#FFFF4747" Click="RedactButt_Click">Редакт.</Button>
                 <Button Background="White" x:Name="LikeButt" BorderBrush="White">❤</Button>
+                <Button Background="White" x:Name="DeleteButt" BorderBrush="White" Click="DeleteButt_Click">Удалить</Button>
                 <Button Background="White" x:Name="StatisticButt" BorderBrush="White">.|||.</Button>
             </StackPanel>
 

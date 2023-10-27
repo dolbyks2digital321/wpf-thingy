@@ -15,7 +15,7 @@ namespace wpf_thingy.Cumponents
         {
             get
             {
-                if (Discount == 0) return Cost;
+                if (Discount == 0 || Discount is null) return Cost;
                 else return Cost - Cost * (decimal)Discount / 100;
             }
         }

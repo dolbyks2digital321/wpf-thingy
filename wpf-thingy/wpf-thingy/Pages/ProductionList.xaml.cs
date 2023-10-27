@@ -56,7 +56,7 @@ namespace wpf_thingy.Pages
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            Navigation.NextPage(new PageComponent("Добавление услуг", new AddEditPage(new Product())));
         }
     }
 }

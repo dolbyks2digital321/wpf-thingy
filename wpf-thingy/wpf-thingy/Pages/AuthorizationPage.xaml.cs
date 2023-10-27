@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_thingy.Cumponents;
 
 namespace wpf_thingy.Pages
 {
@@ -31,15 +32,15 @@ namespace wpf_thingy.Pages
             {
                 App.isAdmin = true;
                 MessageBox.Show("Здравстуйте! Вы вошли как администратор!");
-                NavigationService.Navigate(new ProductionList());
-                
+                Navigation.NextPage(new PageComponent("Список услуг", new ProductionList()));
+
             }
             else if (PassBx.Password != "" && PassBx.Password != "0000") MessageBox.Show("Неверный пароль!");
             else
             {
                 App.isAdmin=false;
                 MessageBox.Show("Здравстуйте! Вы вошли как пользователь!");
-                NavigationService.Navigate(new ProductionList());
+                Navigation.NextPage(new PageComponent("Список услуг", new ProductionList()));
             }
 
         }

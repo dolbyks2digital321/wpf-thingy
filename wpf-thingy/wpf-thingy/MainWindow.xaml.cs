@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using wpf_thingy.Cumponents;
 using wpf_thingy.Pages;
+
 
 namespace wpf_thingy
 {
@@ -25,6 +27,7 @@ namespace wpf_thingy
         public MainWindow()
         {
             InitializeComponent();
+            Navigation.mainWindow = this;
             //var path = @"\\NAS36D451\user-domain$\stud\212102\Desktop\";
             //foreach (var item in App.db.Product.ToArray())
             //{
@@ -32,25 +35,20 @@ namespace wpf_thingy
             //    item.MainImage = File.ReadAllBytes(fullPath);
             //}
             //App.db.SaveChanges();
-            MainFrame.Navigate(new AuthorizationPage());
-            
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizationPage()));
+
         }
 
         private void BackButt_Click(object sender, RoutedEventArgs e)
         {
-            if (MainFrame.CanGoBack && App.isAdmin == false)
-            {
-                MainFrame.GoBack();
-                MainFrame.RemoveBackEntry();
-            }
-            else if (MainFrame.CanGoBack) MainFrame.GoBack();
+            Navigation.BackPage();
         }
 
         private void ExitButt_Click(object sender, RoutedEventArgs e)
         {
             App.isAdmin = false;
-            MainFrame.Navigate(new AuthorizationPage());
-            if (MainFrame.CanGoBack) MainFrame.RemoveBackEntry();
+            Navigation.ClearHistory();
+            Navigation.NextPage(new PageComponent("Авторизация", new AuthorizationPage()));
         }
     }
 }

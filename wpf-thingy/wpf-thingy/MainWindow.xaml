@@ -19,6 +19,8 @@
         <Rectangle Fill="#FFFFB9DE" Grid.ColumnSpan="2"></Rectangle>
         <Rectangle Fill="#FFFFB9DE" Grid.RowSpan="2"></Rectangle>
 
+        <TextBlock x:Name="TitleTB" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Название</TextBlock>
+        
         <StackPanel Grid.Row="1" VerticalAlignment="Bottom">
             <Button Width="65" Margin="0 20" Height="40" x:Name="BackButt" Click="BackButt_Click">Назад</Button>
             <Button Width="65" Margin="0 20" Height="40" x:Name="ExitButt" Click="ExitButt_Click">Выход</Button>
