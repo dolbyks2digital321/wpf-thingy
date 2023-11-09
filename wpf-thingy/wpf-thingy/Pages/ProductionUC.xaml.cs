@@ -48,6 +48,7 @@ namespace wpf_thingy.Pages
             CommentsTb.Text = $"{cunt} отзывов";
             DiscoTB.Visibility = product.CostVisibility;
             DiscoTB.Text = $"{product.Discount}% !!!";
+            MainBorder.BorderBrush = product.ColorBorder;
 
             if (App.isAdmin == false)
             {
@@ -91,6 +92,34 @@ namespace wpf_thingy.Pages
             App.db.SaveChanges();
             MessageBox.Show("Удалено: " + product.Title);
             Navigation.NextPage(new PageComponent("Список услуг", new ProductionList()));
+        }
+
+        private void BuyButt_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder error = new StringBuilder();
+            if (App.db.OrderList.Any(X => X.ProductId == product.Id))
+                {
+                    error.AppendLine("Такой товар уже добавлен!");
+                    MessageBox.Show(error.ToString());
+                }
+            
+            else
+            {   
+                OrderList order = new OrderList();
+                order.ProductId = product.Id;
+
+                App.db.OrderList.Add(order);
+            }
+
+            if (error.Length > 0)
+            {
+                MessageBox.Show(error.ToString());
+                return;
+            }
+            App.db.SaveChanges();
+            MessageBox.Show("Сохранено!");
+
+            
         }
     }
 }

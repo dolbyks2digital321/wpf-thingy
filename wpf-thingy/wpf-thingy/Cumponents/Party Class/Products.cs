@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace wpf_thingy.Cumponents
 {
@@ -27,6 +28,16 @@ namespace wpf_thingy.Cumponents
                 if (Discount == 0)
                     return Visibility.Collapsed;
                 else return Visibility.Visible;
+            }
+        }
+
+        public SolidColorBrush ColorBorder
+        {
+            get
+            {
+                if (Discount == 0)
+                    return new SolidColorBrush(Color.FromRgb(251, 169, 255));
+                else return new SolidColorBrush(Color.FromRgb(117, 255, 169));
             }
         }
     }

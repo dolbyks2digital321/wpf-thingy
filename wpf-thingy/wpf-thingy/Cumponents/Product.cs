@@ -18,6 +18,7 @@ namespace wpf_thingy.Cumponents
         public Product()
         {
             this.Feedback = new HashSet<Feedback>();
+            this.OrderList = new HashSet<OrderList>();
         }
     
         public int Id { get; set; }
@@ -30,5 +31,7 @@ namespace wpf_thingy.Cumponents
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Feedback> Feedback { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OrderList> OrderList { get; set; }
     }
 }

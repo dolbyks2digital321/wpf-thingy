@@ -9,6 +9,8 @@
         <EntityTypeShape EntityType="HardwareShop312Model.Product" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="HardwareShop312Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <AssociationConnector Association="HardwareShop312Model.FK_Feedback_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HardwareShop312Model.OrderList" Width="1.5" PointX="3" PointY="4.5" />
+        <AssociationConnector Association="HardwareShop312Model.FK_OrderList_Product" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:wpf_thingy.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
-    <Border x:Name="MainBorder" Height="400" Width="290" BorderBrush="#FFFFB4E6" BorderThickness="2" Margin="2">
+    <Border x:Name="MainBorder" Height="400" Width="290" BorderThickness="2" Margin="2">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="67*"/>
@@ -21,7 +21,7 @@
             <TextBlock Margin="0 75 5 0" FontSize="18" HorizontalAlignment="Right" x:Name="DiscoTB" Height="35" Width="65" Background="#FFFF4747" Foreground="White"></TextBlock>
             <TextBlock x:Name="TitleTb" Grid.Row="1"></TextBlock>
             <StackPanel Grid.Row="2" Orientation="Horizontal">
-                <TextBlock x:Name="StarAmountTb"></TextBlock>
+                <TextBlock x:Name="StarAmountTb" Foreground="#FFFF4747"></TextBlock>
                 <TextBlock Margin="100 0" x:Name="CommentsTb"></TextBlock>
             </StackPanel>
             <StackPanel Grid.Row="3" Orientation="Horizontal">
@@ -29,7 +29,7 @@
                 <TextBlock x:Name="CostOldTb" TextDecorations="Strikethrough"></TextBlock>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center"  Grid.Row="4" Orientation="Horizontal">
-                <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White" BorderBrush="#FFFF4747">Купить</Button>
+                <Button x:Name="BuyButt" Background="#FFFF4747" Foreground="White" Click="BuyButt_Click" BorderBrush="#FFFF4747">Купить</Button>
                 <Button x:Name="RedactButt" Background="#FFFF4747" Foreground="White" BorderBrush="#FFFF4747" Click="RedactButt_Click">Редакт.</Button>
                 <Button Background="White" x:Name="LikeButt" BorderBrush="White">❤</Button>
                 <Button Background="White" x:Name="DeleteButt" BorderBrush="White" Click="DeleteButt_Click">Удалить</Button>

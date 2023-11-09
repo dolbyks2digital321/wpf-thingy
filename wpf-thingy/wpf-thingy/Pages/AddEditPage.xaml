@@ -11,8 +11,8 @@
     <Grid>
         <StackPanel Margin="300 0 0 0" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <TextBlock >Идентификатор</TextBlock>
-                <TextBox IsReadOnly="True" Text="{Binding Id}"></TextBox>
+                <TextBlock x:Name="IdProdTBl">Идентификатор</TextBlock>
+                <TextBox IsReadOnly="True" x:Name="IdProdTBx" Text="{Binding Id}"></TextBox>
             </StackPanel>
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                 <TextBlock>Название</TextBlock>
@@ -41,6 +41,24 @@
             <StackPanel>
                 <Button x:Name="EditImageButt" Width="200" Click="EditImageButt_Click">Изменить изображение</Button>
             </StackPanel>
+            <!--<StackPanel x:Name="StackPanelPhoto" >
+                <ListView x:Name="PhotoList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Width="330" Height="110">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Image Height="100" Source="{Binding PhotoByte}"></Image>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Button x:Name="AddImgButt" Click="AddImgButt_Click">Добавить</Button>
+                    <Button x:Name="DeleteImgButt" Click="DeleteImgButt_Click">Удалить</Button>
+                </StackPanel>
+            </StackPanel>-->
         </StackPanel>
     </Grid>
 </Page>

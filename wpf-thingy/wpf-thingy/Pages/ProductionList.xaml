@@ -16,17 +16,34 @@
         </Grid.RowDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <TextBlock>Порядок</TextBlock>
             <ComboBox x:Name="SortCB" SelectionChanged="SortCB_SelectionChanged">
                 <ComboBoxItem>По умолчанию</ComboBoxItem>
                 <ComboBoxItem>По возрастанию</ComboBoxItem>
                 <ComboBoxItem>По убыванию</ComboBoxItem>
             </ComboBox>
+            <TextBlock>Скидка</TextBlock>
+            <ComboBox x:Name="DiscountFilterCbx" SelectionChanged="DiscountFilterCbx_SelectionChanged">
+                <ComboBoxItem>Все</ComboBoxItem>
+                <ComboBoxItem>От 0% до 5%</ComboBoxItem>
+                <ComboBoxItem>От 5% до 15%</ComboBoxItem>
+                <ComboBoxItem>От 15% до 30%</ComboBoxItem>
+                <ComboBoxItem>От 30% до 70%</ComboBoxItem>
+                <ComboBoxItem>От 70% до 100%</ComboBoxItem>
+            </ComboBox>
+            <TextBlock>Поиск</TextBlock>
+            <TextBox Width="200" x:Name="SearchTbx" TextChanged="SearchTbx_TextChanged"></TextBox>
         </StackPanel>
 
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
             <WrapPanel x:Name="ProductionWP"></WrapPanel>
         </ScrollViewer>
 
-        <Button Grid.Row="2" Height="50" x:Name="AddBtn" Click="AddBtn_Click">Добавить</Button>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="2">
+            <Button  Margin="10 0"  Height="50" x:Name="OrderListButt" Click="OrderListButt_Click">Корзина</Button>
+            <Button Height="50" x:Name="AddBtn" Click="AddBtn_Click">Добавить</Button>
+            <TextBox Margin="10 0" FontSize="24" x:Name="CountDataTbx" IsReadOnly="True" BorderBrush="White"></TextBox>
+        </StackPanel>
+        
     </Grid>
 </Page>

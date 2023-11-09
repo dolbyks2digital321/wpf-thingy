@@ -29,6 +29,11 @@ namespace wpf_thingy.Pages
             InitializeComponent();
             product = _product;
             this.DataContext = product;
+            if (product.Id == 0)
+            {
+                IdProdTBx.Visibility = Visibility.Hidden;
+                IdProdTBl.Visibility = Visibility.Hidden;
+            }
         }
 
         private void SaveButt_Click(object sender, RoutedEventArgs e)
@@ -39,10 +44,8 @@ namespace wpf_thingy.Pages
                 error.AppendLine("Услуга не может иметь такую цену!");
             }
 
-            // если у нас такого объекта нет, соответственно, ид = 0
             if (product.Id == 0)
             {
-                //если совпадают названия, то выдаем ошибку
                 if (App.db.Product.Any(X => X.Title == product.Title))
                 {
                     error.AppendLine("Такая услуга уже существует!");
@@ -58,7 +61,7 @@ namespace wpf_thingy.Pages
                     App.db.Product.Add(product);
                 }
             }
-            //вывод ошибкок
+
             if (error.Length > 0)
             {
                 MessageBox.Show(error.ToString());

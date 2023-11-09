@@ -42,11 +42,31 @@ namespace wpf_thingy.Pages
             {
                 productSortList = productSortList.OrderByDescending(x => x.NewCost);
             }
+
+            if (DiscountFilterCbx.SelectedIndex != 0)
+            {
+                if (DiscountFilterCbx.SelectedIndex == 1)
+                    productSortList = productSortList.Where(x => x.Discount >= 0 && x.Discount < 5);
+                if (DiscountFilterCbx.SelectedIndex == 2)
+                    productSortList = productSortList.Where(x => x.Discount >= 5 && x.Discount < 15);
+                if (DiscountFilterCbx.SelectedIndex == 3)
+                    productSortList = productSortList.Where(x => x.Discount >= 15 && x.Discount < 30);
+                if (DiscountFilterCbx.SelectedIndex == 4)
+                    productSortList = productSortList.Where(x => x.Discount >= 30 && x.Discount < 70);
+                if (DiscountFilterCbx.SelectedIndex == 5)
+                    productSortList = productSortList.Where(x => x.Discount >= 70 && x.Discount < 100);
+            }
+            if (SearchTbx.Text != null)
+            {
+                productSortList = productSortList.Where(x => x.Title.ToLower().Contains(SearchTbx.Text.ToLower()) || x.Description.ToLower().Contains(SearchTbx.Text.ToLower()));
+            }
+
             ProductionWP.Children.Clear();
             foreach (var service in productSortList)
             {
                 ProductionWP.Children.Add(new ProductionUC(service));
             }
+            CountDataTbx.Text = productSortList.Count() + " из " + App.db.Product.Count();
         }
 
         private void SortCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,9 +74,24 @@ namespace wpf_thingy.Pages
             Refresh();
         }
 
+        private void DiscountFilterCbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Refresh();
+        }
+
+        private void SearchTbx_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Refresh();
+        }
+
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
             Navigation.NextPage(new PageComponent("Добавление услуг", new AddEditPage(new Product())));
+        }
+
+        private void OrderListButt_Click(object sender, RoutedEventArgs e)
+        {
+            Navigation.NextPage(new PageComponent("Корзина", new OrdersPage()));
         }
     }
 }
