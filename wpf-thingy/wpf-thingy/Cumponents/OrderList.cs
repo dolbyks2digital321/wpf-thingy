@@ -17,6 +17,7 @@ namespace wpf_thingy.Cumponents
         public int Id { get; set; }
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> Amount { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
     
         public virtual Product Product { get; set; }
     }

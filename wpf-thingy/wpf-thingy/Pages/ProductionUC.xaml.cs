@@ -107,7 +107,7 @@ namespace wpf_thingy.Pages
             {   
                 OrderList order = new OrderList();
                 order.ProductId = product.Id;
-
+                order.Amount = 1;
                 App.db.OrderList.Add(order);
             }
 

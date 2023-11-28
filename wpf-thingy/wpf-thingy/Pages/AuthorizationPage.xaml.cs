@@ -32,7 +32,7 @@ namespace wpf_thingy.Pages
             {
                 App.isAdmin = true;
                 MessageBox.Show("Здравстуйте! Вы вошли как администратор!");
-                Navigation.NextPage(new PageComponent("Список услуг", new ProductionList()));
+                Navigation.NextPage(new PageComponent("Список товаров", new ProductionList()));
 
             }
             else if (PassBx.Password != "" && PassBx.Password != "0000") MessageBox.Show("Неверный пароль!");
@@ -40,7 +40,7 @@ namespace wpf_thingy.Pages
             {
                 App.isAdmin=false;
                 MessageBox.Show("Здравстуйте! Вы вошли как пользователь!");
-                Navigation.NextPage(new PageComponent("Список услуг", new ProductionList()));
+                Navigation.NextPage(new PageComponent("Список товаров", new ProductionList()));
             }
 
         }

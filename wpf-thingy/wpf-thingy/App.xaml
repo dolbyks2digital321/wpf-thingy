@@ -12,7 +12,6 @@
         
         <Style TargetType="Button">
             <Setter Property="Background" Value="White"></Setter>
-            <Setter Property="Background" Value="White"></Setter>
             <Setter Property="Width" Value="100"></Setter>
             <Setter Property="Height" Value="100"></Setter>
             <Setter Property="Cursor" Value="Hand"></Setter>

@@ -41,7 +41,7 @@ namespace wpf_thingy
 
         private void BackButt_Click(object sender, RoutedEventArgs e)
         {
-            Navigation.BackPage();
+            Navigation.NextPage(new PageComponent("Список товаров", new ProductionList()));
         }
 
         private void ExitButt_Click(object sender, RoutedEventArgs e)

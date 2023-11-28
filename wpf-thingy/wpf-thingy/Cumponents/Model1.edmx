@@ -22,6 +22,7 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductId" Type="int" />
           <Property Name="Amount" Type="int" />
+          <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -228,6 +229,7 @@
           <Property Name="ProductId" Type="Int32" />
           <Property Name="Amount" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="HardwareShop312Model.FK_OrderList_Product" FromRole="OrderList" ToRole="Product" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <Association Name="FK_OrderList_Product">
           <End Type="HardwareShop312Model.Product" Role="Product" Multiplicity="0..1" />
@@ -309,6 +311,7 @@
           <EntitySetMapping Name="OrderList">
             <EntityTypeMapping TypeName="HardwareShop312Model.OrderList">
               <MappingFragment StoreEntitySet="OrderList">
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

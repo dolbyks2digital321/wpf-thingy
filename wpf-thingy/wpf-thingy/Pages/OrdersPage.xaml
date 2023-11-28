@@ -9,8 +9,18 @@
       Title="OrdersPage">
 
     <Grid>
-        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="0">
             <WrapPanel x:Name="ProductionWP"></WrapPanel>
         </ScrollViewer>
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">
+            <TextBlock Margin="10" x:Name="AmountOrders"></TextBlock>
+            <TextBlock Margin="10" x:Name="TotalCost"></TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

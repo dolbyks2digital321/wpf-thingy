@@ -27,11 +27,15 @@ namespace wpf_thingy.Pages
             IEnumerable<OrderList> orderList = App.db.OrderList;
             //var orderList = App.db.Product.ToList();
             ProductionWP.Children.Clear();
+            decimal price = 0;
             foreach (var ord in orderList)
             {
                 ProductionWP.Children.Add(new OrderUC(ord));
+                price += ord.TotalPrice.Value;
             }
+            AmountOrders.Text = orderList.Count().ToString() + " поз. в корзине";
             //CountDataTbx.Text = productSortList.Count() + " из " + App.db.Product.Count();
+            TotalCost.Text = "Общая цена: " + price;
         }
     }
 }

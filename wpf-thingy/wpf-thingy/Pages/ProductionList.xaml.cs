@@ -24,8 +24,8 @@ namespace wpf_thingy.Pages
         public ProductionList()
         {
             InitializeComponent();
-            if (App.isAdmin == false) AddBtn.Visibility = Visibility.Hidden;
-            else AddBtn.Visibility = Visibility.Visible;
+            if (App.isAdmin == false) AddBtn.Visibility = Visibility.Collapsed;
+            else OrderListButt.Visibility = Visibility.Collapsed;
 
             var productList = App.db.Product.ToList();
             Refresh();

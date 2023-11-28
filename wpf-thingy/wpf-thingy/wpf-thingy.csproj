@@ -95,7 +95,6 @@
     <Compile Include="Cumponents\OrderList.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Cumponents\Party Class\OrderList.cs" />
     <Compile Include="Cumponents\Party Class\Products.cs" />
     <Compile Include="Cumponents\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>

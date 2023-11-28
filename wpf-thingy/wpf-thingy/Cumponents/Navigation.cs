@@ -23,7 +23,7 @@ namespace wpf_thingy.Cumponents
         {
             mainWindow.TitleTB.Text = pageComponent.Title;
             mainWindow.BackButt.Visibility = components.Count() > 1 ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
-            mainWindow.ExitButt.Visibility = App.isAdmin ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
+            //mainWindow.ExitButt.Visibility = App.isAdmin ? System.Windows.Visibility.Visible : System.Windows.Visibility.Hidden;
             mainWindow.MainFrame.Navigate(pageComponent.Page);
         }
         public static void NextPage(PageComponent pageComponent)
