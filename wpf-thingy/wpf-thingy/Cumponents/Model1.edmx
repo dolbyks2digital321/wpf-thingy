@@ -46,6 +46,22 @@
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
+        <EntityType Name="ZakazList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="DateZakaz" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>
+        <EntityType Name="ZakazPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="IdOrder" Type="int" />
+          <Property Name="IdZakaz" Type="int" />
+        </EntityType>
         <Association Name="FK_Feedback_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="1" />
           <End Role="Feedback" Type="Self.Feedback" Multiplicity="*" />
@@ -67,6 +83,30 @@
             </Principal>
             <Dependent Role="OrderList">
               <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZakazPosition_OrderList">
+          <End Role="OrderList" Type="Self.OrderList" Multiplicity="0..1" />
+          <End Role="ZakazPosition" Type="Self.ZakazPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZakazPosition">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZakazPosition_ZakazList">
+          <End Role="ZakazList" Type="Self.ZakazList" Multiplicity="0..1" />
+          <End Role="ZakazPosition" Type="Self.ZakazPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZakazList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZakazPosition">
+              <PropertyRef Name="IdZakaz" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -106,6 +146,8 @@
           <EntitySet Name="OrderList" EntityType="Self.OrderList" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZakazList" EntityType="Self.ZakazList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZakazPosition" EntityType="Self.ZakazPosition" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Feedback_Product" Association="Self.FK_Feedback_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="Feedback" EntitySet="Feedback" />
@@ -113,6 +155,14 @@
           <AssociationSet Name="FK_OrderList_Product" Association="Self.FK_OrderList_Product">
             <End Role="Product" EntitySet="Product" />
             <End Role="OrderList" EntitySet="OrderList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZakazPosition_OrderList" Association="Self.FK_ZakazPosition_OrderList">
+            <End Role="OrderList" EntitySet="OrderList" />
+            <End Role="ZakazPosition" EntitySet="ZakazPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZakazPosition_ZakazList" Association="Self.FK_ZakazPosition_ZakazList">
+            <End Role="ZakazList" EntitySet="ZakazList" />
+            <End Role="ZakazPosition" EntitySet="ZakazPosition" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -209,6 +259,16 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="OrderList" EntitySet="OrderList" />
           </AssociationSet>
+          <EntitySet Name="ZakazList" EntityType="HardwareShop312Model.ZakazList" />
+          <EntitySet Name="ZakazPosition" EntityType="HardwareShop312Model.ZakazPosition" />
+          <AssociationSet Name="FK_ZakazPosition_OrderList" Association="HardwareShop312Model.FK_ZakazPosition_OrderList">
+            <End Role="OrderList" EntitySet="OrderList" />
+            <End Role="ZakazPosition" EntitySet="ZakazPosition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ZakazPosition_ZakazList" Association="HardwareShop312Model.FK_ZakazPosition_ZakazList">
+            <End Role="ZakazList" EntitySet="ZakazList" />
+            <End Role="ZakazPosition" EntitySet="ZakazPosition" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -230,6 +290,7 @@
           <Property Name="Amount" Type="Int32" />
           <NavigationProperty Name="Product" Relationship="HardwareShop312Model.FK_OrderList_Product" FromRole="OrderList" ToRole="Product" />
           <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="ZakazPosition" Relationship="HardwareShop312Model.FK_ZakazPosition_OrderList" FromRole="OrderList" ToRole="ZakazPosition" />
         </EntityType>
         <Association Name="FK_OrderList_Product">
           <End Type="HardwareShop312Model.Product" Role="Product" Multiplicity="0..1" />
@@ -240,6 +301,49 @@
             </Principal>
             <Dependent Role="OrderList">
               <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ZakazList">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DateZakaz" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Boolean" />
+          <NavigationProperty Name="ZakazPosition" Relationship="HardwareShop312Model.FK_ZakazPosition_ZakazList" FromRole="ZakazList" ToRole="ZakazPosition" />
+        </EntityType>
+        <EntityType Name="ZakazPosition">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="IdOrder" Type="Int32" />
+          <Property Name="IdZakaz" Type="Int32" />
+          <NavigationProperty Name="OrderList" Relationship="HardwareShop312Model.FK_ZakazPosition_OrderList" FromRole="ZakazPosition" ToRole="OrderList" />
+          <NavigationProperty Name="ZakazList" Relationship="HardwareShop312Model.FK_ZakazPosition_ZakazList" FromRole="ZakazPosition" ToRole="ZakazList" />
+        </EntityType>
+        <Association Name="FK_ZakazPosition_OrderList">
+          <End Type="HardwareShop312Model.OrderList" Role="OrderList" Multiplicity="0..1" />
+          <End Type="HardwareShop312Model.ZakazPosition" Role="ZakazPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OrderList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZakazPosition">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ZakazPosition_ZakazList">
+          <End Type="HardwareShop312Model.ZakazList" Role="ZakazList" Multiplicity="0..1" />
+          <End Type="HardwareShop312Model.ZakazPosition" Role="ZakazPosition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZakazList">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ZakazPosition">
+              <PropertyRef Name="IdZakaz" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -314,6 +418,24 @@
                 <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZakazList">
+            <EntityTypeMapping TypeName="HardwareShop312Model.ZakazList">
+              <MappingFragment StoreEntitySet="ZakazList">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DateZakaz" ColumnName="DateZakaz" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZakazPosition">
+            <EntityTypeMapping TypeName="HardwareShop312Model.ZakazPosition">
+              <MappingFragment StoreEntitySet="ZakazPosition">
+                <ScalarProperty Name="IdZakaz" ColumnName="IdZakaz" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

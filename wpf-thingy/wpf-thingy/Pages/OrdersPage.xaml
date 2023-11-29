@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" Grid.Row="0">
-            <WrapPanel x:Name="ProductionWP"></WrapPanel>
+            <WrapPanel x:Name="OrderWP"></WrapPanel>
         </ScrollViewer>
 
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1">

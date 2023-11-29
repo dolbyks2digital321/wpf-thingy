@@ -26,11 +26,11 @@ namespace wpf_thingy.Pages
             InitializeComponent();
             IEnumerable<OrderList> orderList = App.db.OrderList;
             //var orderList = App.db.Product.ToList();
-            ProductionWP.Children.Clear();
+            OrderWP.Children.Clear();
             decimal price = 0;
             foreach (var ord in orderList)
             {
-                ProductionWP.Children.Add(new OrderUC(ord));
+                OrderWP.Children.Add(new OrderUC(ord));
                 price += ord.TotalPrice.Value;
             }
             AmountOrders.Text = orderList.Count().ToString() + " поз. в корзине";

@@ -73,5 +73,10 @@ namespace wpf_thingy.Pages
             App.db.SaveChanges();
             Navigation.NextPage(new PageComponent("Корзина", new OrdersPage()));
         }
+
+        private void CheckBox_CheckedChanged(object sender, RoutedEventArgs e)
+        {
+            if 
+        }
     }
 }

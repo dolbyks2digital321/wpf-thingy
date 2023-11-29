@@ -11,6 +11,10 @@
         <AssociationConnector Association="HardwareShop312Model.FK_Feedback_Product" ManuallyRouted="false" />
         <EntityTypeShape EntityType="HardwareShop312Model.OrderList" Width="1.5" PointX="3" PointY="4.5" />
         <AssociationConnector Association="HardwareShop312Model.FK_OrderList_Product" />
+        <EntityTypeShape EntityType="HardwareShop312Model.ZakazList" Width="1.5" PointX="3" PointY="7.75" />
+        <EntityTypeShape EntityType="HardwareShop312Model.ZakazPosition" Width="1.5" PointX="5.25" PointY="4.625" />
+        <AssociationConnector Association="HardwareShop312Model.FK_ZakazPosition_OrderList" />
+        <AssociationConnector Association="HardwareShop312Model.FK_ZakazPosition_ZakazList" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
