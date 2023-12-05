@@ -20,7 +20,7 @@
                 <TextBlock x:Name="CostWithoutDiscountTb" Margin="100 0">34</TextBlock>
             </StackPanel>
 
-            <CheckBox FontSize="30" HorizontalAlignment="Right" Checked="CheckBox_CheckedChanged" Unchecked="CheckBox_CheckedChanged">Заказать</CheckBox>
+            <CheckBox x:Name="ZakazChk" FontSize="30" HorizontalAlignment="Right" Checked="CheckBox_CheckedChanged" Unchecked="CheckBox_CheckedChanged">Заказать</CheckBox>
 
             <StackPanel Grid.Row="1">
                 <TextBlock x:Name="TitleTb" Margin="10 2">Название</TextBlock>

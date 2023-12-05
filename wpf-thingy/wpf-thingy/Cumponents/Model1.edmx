@@ -23,6 +23,7 @@
           <Property Name="ProductId" Type="int" />
           <Property Name="Amount" Type="int" />
           <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Visible" Type="bit" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -291,6 +292,7 @@
           <NavigationProperty Name="Product" Relationship="HardwareShop312Model.FK_OrderList_Product" FromRole="OrderList" ToRole="Product" />
           <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="ZakazPosition" Relationship="HardwareShop312Model.FK_ZakazPosition_OrderList" FromRole="OrderList" ToRole="ZakazPosition" />
+          <Property Name="Visible" Type="Boolean" />
         </EntityType>
         <Association Name="FK_OrderList_Product">
           <End Type="HardwareShop312Model.Product" Role="Product" Multiplicity="0..1" />
@@ -415,6 +417,7 @@
           <EntitySetMapping Name="OrderList">
             <EntityTypeMapping TypeName="HardwareShop312Model.OrderList">
               <MappingFragment StoreEntitySet="OrderList">
+                <ScalarProperty Name="Visible" ColumnName="Visible" />
                 <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />

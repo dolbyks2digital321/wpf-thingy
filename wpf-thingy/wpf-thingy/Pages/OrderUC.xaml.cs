@@ -76,7 +76,8 @@ namespace wpf_thingy.Pages
 
         private void CheckBox_CheckedChanged(object sender, RoutedEventArgs e)
         {
-            if 
+            order.Visible = !order.Visible;
+            App.db.SaveChanges();
         }
     }
 }

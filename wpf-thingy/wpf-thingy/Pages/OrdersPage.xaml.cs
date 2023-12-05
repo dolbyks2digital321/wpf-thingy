@@ -25,6 +25,7 @@ namespace wpf_thingy.Pages
         {
             InitializeComponent();
             IEnumerable<OrderList> orderList = App.db.OrderList;
+                //.Where(x => x.Visible == true);
             //var orderList = App.db.Product.ToList();
             OrderWP.Children.Clear();
             decimal price = 0;

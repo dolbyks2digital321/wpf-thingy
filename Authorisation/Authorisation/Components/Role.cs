@@ -7,27 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace wpf_thingy.Cumponents
+namespace Authorisation.Components
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderList
+    public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderList()
+        public Role()
         {
-            this.ZakazPosition = new HashSet<ZakazPosition>();
+            this.User = new HashSet<User>();
         }
     
-        public int Id { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> Amount { get; set; }
-        public Nullable<decimal> TotalPrice { get; set; }
-        public Nullable<bool> Visible { get; set; }
+        public int Id_Role { get; set; }
+        public string Name_Role { get; set; }
     
-        public virtual Product Product { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ZakazPosition> ZakazPosition { get; set; }
+        public virtual ICollection<User> User { get; set; }
     }
 }
